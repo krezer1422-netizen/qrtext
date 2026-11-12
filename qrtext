@@ -1,13 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 VERSION="1.0.3"
-REPO="https://raw.githubusercontent.com/krezer1422-netizen/qrtext/main/qrtext"
+REPO="…"
 
-# Installation mode
+# O'rnatish rejimi
 if [ "${0##*/}" = "bash" ]; then
 
     if [ -z "$PREFIX" ]; then
-        echo "Termux required."
+        echo "Faqat Termux qo'llab-quvvatlanadi."
         exit 1
     fi
 
@@ -26,6 +26,8 @@ if [ "${0##*/}" = "bash" ]; then
     chmod +x "$TMP"
     mv "$TMP" "$PREFIX/bin/qrtext" || exit 1
 
+    echo "QRText v$VERSION muvaffaqiyatli o'rnatildi!"
+
     cat <<'BANNER'
   /$$$$$$         /$$$$$$$$ /$$$$$$$$ /$$   /$$ /$$$$$$$$
  /$$__  $$       |__  $$__/| $$_____/| $$  / $$|__  $$__/
@@ -41,11 +43,13 @@ BANNER
     exit 0
 fi
 
+# Versiya
 if [ "$1" = "-v" ]; then
     echo "$VERSION"
     exit 0
 fi
 
+# Yordam
 if [ "$1" = "-h" ]; then
     echo "QRText v$VERSION"
     echo "Usage: qrtext <text>"
@@ -54,6 +58,7 @@ if [ "$1" = "-h" ]; then
     exit 0
 fi
 
+# QR generator
 exec python - "$@" <<'PY'
 import sys
 import qrcode
