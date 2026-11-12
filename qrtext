@@ -27,17 +27,7 @@ if [ "${0##*/}" = "bash" ]; then
     mv "$TMP" "$PREFIX/bin/qrtext" || exit 1
 
     clear
-
-    cat <<'BANNER'
- ████  ████  █████ █████ █   █ █████
-█   █ █   █   █     █    █ █    █
-█   █ ████    █     █     █     █
-█  ██ █ █     █     █    █ █    █
- ████ █  ██   █   █████ █   █   █
-
-       QRText · TERMINAL QR GENERATOR
-       VERSION 1.0.5
-BANNER
+    echo "QRText v$VERSION o'rnatildi!"
 
     exit 0
 fi
