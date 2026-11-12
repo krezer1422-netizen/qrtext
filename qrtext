@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-VERSION="1.0.3"
+VERSION="1.0.4"
 REPO="https://raw.githubusercontent.com/krezer1422-netizen/qrtext/main/qrtext"
 
 # O'rnatish rejimi
@@ -10,6 +10,8 @@ if [ "${0##*/}" = "bash" ]; then
         echo "Faqat Termux qo'llab-quvvatlanadi."
         exit 1
     fi
+
+    echo "QRText v$VERSION o'rnatilmoqda..."
 
     pkg install python -y >/dev/null 2>&1 || exit 1
     python -m pip install --quiet qrcode || exit 1
