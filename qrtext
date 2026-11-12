@@ -27,7 +27,18 @@ if [ "${0##*/}" = "bash" ]; then
     mv "$TMP" "$PREFIX/bin/qrtext" || exit 1
 
     clear
-    echo "QRText v$VERSION o'rnatildi!"
+
+    cat <<'BANNER'
+                      d8P                     d8P
+                   d888888P                d888888P
+.d88b,.88P  88bd88b  ?88'   d8888b?88,  88P  ?88'
+88P  `88P'  88P'  `  88P   d8b_,dP `?8bd8P'  88P
+?8b  d88   d88       88b   88b     d8P?8b,   88b
+`?888888  d88'       `?8b  `?888P'd8P' `?8b  `?8b
+    `?88
+      88b
+      ?8P
+BANNER
 
     exit 0
 fi
