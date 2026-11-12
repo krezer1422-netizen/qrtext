@@ -1,17 +1,15 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-VERSION="1.0.4"
+VERSION="1.0.5"
 REPO="https://raw.githubusercontent.com/krezer1422-netizen/qrtext/main/qrtext"
 
 # O'rnatish rejimi
-if [ "${BASH_SOURCE[0]}" != "$0" ]; then
+if [ "${0##*/}" = "bash" ]; then
 
     if [ -z "$PREFIX" ]; then
         echo "Faqat Termux qo'llab-quvvatlanadi."
         exit 1
     fi
-
-    echo "QRText v$VERSION o'rnatilmoqda..."
 
     pkg install python -y >/dev/null 2>&1 || exit 1
     python -m pip install --quiet qrcode || exit 1
@@ -22,14 +20,13 @@ if [ "${BASH_SOURCE[0]}" != "$0" ]; then
 
     curl -fsSL "$REPO" -o "$TMP" || {
         rm -f "$TMP"
-        echo "Xatolik: QRText yuklab olinmadi."
         exit 1
     }
 
     chmod +x "$TMP"
     mv "$TMP" "$PREFIX/bin/qrtext" || exit 1
 
-    echo "QRText v$VERSION muvaffaqiyatli o'rnatildi!"
+    clear
 
     cat <<'BANNER'
  ████  ████  █████ █████ █   █ █████
@@ -39,7 +36,7 @@ if [ "${BASH_SOURCE[0]}" != "$0" ]; then
  ████ █  ██   █   █████ █   █   █
 
        QRText · TERMINAL QR GENERATOR
-       VERSION 1.0.4
+       VERSION 1.0.5
 BANNER
 
     exit 0
